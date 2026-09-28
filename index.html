@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="description" content="Book a free 15-minute intro call with Coach Alex. Demo booking page by @lift_leads.">
+<meta name="theme-color" content="#0b0b0b">
+<title>Book a call · Coach Alex</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--lime:#B6FF3B;--ink:#111;--muted:#6b6f76;--line:#e7e8ea;--bg:#0b0b0b}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--bg)}
+  body{font-family:'Poppins',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;color:var(--ink);
+    min-height:100vh;padding:20px 14px calc(24px + env(safe-area-inset-bottom));-webkit-font-smoothing:antialiased}
+  .wrap{max-width:440px;margin:0 auto}
+  .card{background:#fff;border-radius:22px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,.45)}
+  .coach{display:flex;align-items:center;gap:12px;padding:18px 20px;border-bottom:1px solid var(--line)}
+  .avatar{width:48px;height:48px;border-radius:50%;background:#111;color:var(--lime);display:grid;place-items:center;
+    font-weight:700;font-size:18px;flex:none;box-shadow:0 0 0 3px var(--lime)}
+  .coach-name{font-weight:600;font-size:15px;line-height:1.2}
+  .coach-sub{font-size:12.5px;color:var(--muted)}
+  .body{padding:20px}
+  h1{font-size:23px;line-height:1.2;font-weight:700;letter-spacing:-.2px}
+  .meta{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 12px}
+  .pill{font-size:12px;font-weight:500;background:#f3f4f5;border-radius:999px;padding:5px 10px;color:#333}
+  .pill.free{background:var(--lime);color:#111}
+  .blurb{font-size:14px;color:#3d4045;line-height:1.55}
+  .label{font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;color:var(--muted);margin:22px 0 10px}
+  .dates{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+  .date{border:1.5px solid var(--line);background:#fff;border-radius:14px;padding:9px 0 8px;text-align:center;cursor:pointer;
+    font-family:inherit;color:inherit;transition:border-color .15s,background .15s}
+  .date .dow{display:block;font-size:11px;color:var(--muted);font-weight:500;text-transform:uppercase}
+  .date .num{display:block;font-size:18px;font-weight:700;line-height:1.3}
+  .date .mon{display:block;font-size:10.5px;color:var(--muted)}
+  .date.sel{background:#111;border-color:#111;color:#fff}
+  .date.sel .dow,.date.sel .mon{color:var(--lime)}
+  .slots{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .slot{border:1.5px solid #111;background:#fff;border-radius:12px;padding:13px 0;font-family:inherit;font-size:14.5px;
+    font-weight:600;color:#111;cursor:pointer;transition:background .15s,transform .05s}
+  .slot:active{transform:scale(.98)}
+  .slot:hover,.slot:focus-visible{background:var(--lime);border-color:#111;outline:none}
+  .tz{font-size:12px;color:var(--muted);margin-top:14px;text-align:center}
+  footer{display:flex;align-items:center;justify-content:center;gap:10px;margin:22px auto 0;color:#9a9da3;font-size:12px;text-align:left;max-width:440px}
+  footer img{width:32px;height:32px;border-radius:8px;flex:none}
+  footer a{color:var(--lime);text-decoration:none;font-weight:600}
+  .overlay{position:fixed;inset:0;background:rgba(0,0,0,.65);display:flex;align-items:flex-end;justify-content:center;
+    opacity:0;pointer-events:none;transition:opacity .2s;z-index:10;padding:0}
+  .overlay.open{opacity:1;pointer-events:auto}
+  .sheet{background:#fff;width:100%;max-width:440px;border-radius:24px 24px 0 0;padding:26px 22px calc(24px + env(safe-area-inset-bottom));
+    transform:translateY(24px);transition:transform .22s;text-align:center;position:relative}
+  .overlay.open .sheet{transform:none}
+  @media (min-width:520px){.overlay{align-items:center}.sheet{border-radius:24px}}
+  .grab{width:40px;height:4px;border-radius:4px;background:#ddd;margin:-12px auto 16px}
+  .close{position:absolute;top:12px;right:12px;width:34px;height:34px;border-radius:50%;border:0;background:#f1f2f3;font-size:18px;cursor:pointer;color:#333}
+  .picked{display:inline-block;font-size:12.5px;font-weight:600;background:#111;color:var(--lime);border-radius:999px;padding:5px 12px;margin-bottom:12px}
+  .sheet h2{font-size:21px;font-weight:700;margin-bottom:8px}
+  .sheet p{font-size:14.5px;color:#3d4045;line-height:1.55;margin-bottom:8px}
+  .sheet p strong{color:#111}
+  .cta{display:block;background:var(--lime);color:#111;font-weight:700;font-size:15.5px;text-decoration:none;border-radius:14px;padding:15px;margin-top:16px;border:2px solid #111}
+  .later{display:block;width:100%;background:none;border:0;font-family:inherit;color:var(--muted);font-size:13.5px;margin-top:10px;padding:8px;cursor:pointer}
+</style>
+</head>
+<body>
+<main class="wrap">
+  <section class="card">
+    <div class="coach">
+      <div class="avatar" aria-hidden="true">CA</div>
+      <div>
+        <div class="coach-name">Coach Alex</div>
+        <div class="coach-sub">Online Strength Coaching</div>
+      </div>
+    </div>
+    <div class="body">
+      <h1>Book your free intro call</h1>
+      <div class="meta"><span class="pill">⏱ 15 minutes</span><span class="pill">🎥 Video call</span><span class="pill free">Free</span></div>
+      <p class="blurb">Let's talk about your goals and put a simple plan together.</p>
+      <div class="label">Pick a day</div>
+      <div class="dates" id="dates"></div>
+      <div class="label" id="slotLabel">Available times</div>
+      <div class="slots" id="slots"></div>
+      <p class="tz">Times shown in your local time zone</p>
+    </div>
+  </section>
+  <footer>
+    <img src="logo.png" alt="Lift Leads logo" width="32" height="32">
+    <span>Demo by <a href="https://www.instagram.com/lift_leads/" target="_blank" rel="noopener">@lift_leads</a>. This is where your own calendar goes.</span>
+  </footer>
+</main>
+
+<div class="overlay" id="overlay" role="dialog" aria-modal="true" aria-labelledby="mTitle">
+  <div class="sheet">
+    <div class="grab"></div>
+    <button class="close" id="closeX" aria-label="Close">×</button>
+    <div class="picked" id="picked"></div>
+    <h2 id="mTitle">This is a demo 👋</h2>
+    <p>In a real setup, this is where your followers book straight into <strong>YOUR</strong> calendar.</p>
+    <p>Want this for your page? DM <strong>@lift_leads</strong></p>
+    <a class="cta" href="https://www.instagram.com/lift_leads/" target="_blank" rel="noopener">DM @lift_leads on Instagram</a>
+    <button class="later" id="closeBtn">Keep looking around</button>
+  </div>
+</div>
+
+<script>
+(function(){
+  // Demo only: nothing is booked, stored, or sent anywhere.
+  var TIMES=["9:00 AM","11:30 AM","2:00 PM","5:30 PM","7:00 PM"];
+  var datesEl=document.getElementById('dates'),slotsEl=document.getElementById('slots'),
+      label=document.getElementById('slotLabel'),overlay=document.getElementById('overlay'),
+      picked=document.getElementById('picked');
+  var days=[],d=new Date();d.setHours(12,0,0,0);
+  while(days.length<5){d.setDate(d.getDate()+1);var w=d.getDay();if(w!==0&&w!==6)days.push(new Date(d));}
+  var sel=0;
+  function fmt(o,dt){return dt.toLocaleDateString('en-US',o);}
+  function renderDates(){
+    datesEl.innerHTML='';
+    days.forEach(function(dt,i){
+      var b=document.createElement('button');b.type='button';b.className='date'+(i===sel?' sel':'');
+      b.innerHTML='<span class="dow">'+fmt({weekday:'short'},dt)+'</span><span class="num">'+dt.getDate()+'</span><span class="mon">'+fmt({month:'short'},dt)+'</span>';
+      b.onclick=function(){sel=i;renderDates();renderSlots();};
+      datesEl.appendChild(b);
+    });
+  }
+  function renderSlots(){
+    label.textContent='Available times · '+fmt({weekday:'long',month:'short',day:'numeric'},days[sel]);
+    slotsEl.innerHTML='';
+    TIMES.forEach(function(t){
+      var b=document.createElement('button');b.type='button';b.className='slot';b.textContent=t;
+      b.onclick=function(){open(t);};slotsEl.appendChild(b);
+    });
+  }
+  function open(t){picked.textContent=fmt({weekday:'short',month:'short',day:'numeric'},days[sel])+' · '+t;overlay.classList.add('open');}
+  function close(){overlay.classList.remove('open');}
+  document.getElementById('closeX').onclick=close;document.getElementById('closeBtn').onclick=close;
+  overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  window.__demoOpen=open;
+  renderDates();renderSlots();
+})();
+</script>
+</body>
+</html>
